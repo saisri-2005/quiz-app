@@ -1,0 +1,191 @@
+import 'package:flutter/material.dart';
+import 'question.dart';
+
+class Category {
+  final String name;
+  final List<Question> questions;
+  final Color color1;
+  final Color color2;
+
+  Category({
+    required this.name,
+    required this.questions,
+    required this.color1,
+    required this.color2,
+  });
+
+  static List<Category> getCategories() {
+    return [
+      Category(
+        name: 'Science',
+        color1: Colors.green,
+        color2: Colors.lightGreen,
+        questions: [
+          Question(questionText: 'What is the chemical symbol for water?', options: ['H2O', 'CO2', 'NaCl', 'O2'], correctIndex: 0),
+          Question(questionText: 'Which planet is known as the Red Planet?', options: ['Venus', 'Mars', 'Jupiter', 'Saturn'], correctIndex: 1),
+          Question(questionText: 'What gas do plants produce?', options: ['Oxygen', 'Nitrogen', 'Carbon monoxide', 'Hydrogen'], correctIndex: 0),
+          Question(questionText: 'What is the center of an atom called?', options: ['Electron', 'Proton', 'Nucleus', 'Neutron'], correctIndex: 2),
+          Question(questionText: 'Which organ pumps blood around the body?', options: ['Liver', 'Lungs', 'Heart', 'Kidney'], correctIndex: 2),
+          Question(questionText: 'What is the speed of light (approx)?', options: ['300,000 km/s', '150,000 km/s', '30,000 km/s', '3,000 km/s'], correctIndex: 0),
+          Question(questionText: 'What is the study of living organisms called?', options: ['Geology', 'Biology', 'Physics', 'Chemistry'], correctIndex: 1),
+          Question(questionText: 'Which element has chemical symbol Fe?', options: ['Lead', 'Iron', 'Fluorine', 'Francium'], correctIndex: 1),
+          Question(questionText: 'What causes tides on Earth?', options: ['Wind', 'Sunlight', 'Moon gravity', 'Earth rotation'], correctIndex: 2),
+          Question(questionText: 'Which blood cells help fight infection?', options: ['Red blood cells', 'White blood cells', 'Platelets', 'Plasma'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'Mathematics',
+        color1: Colors.blue,
+        color2: Colors.lightBlue,
+        questions: [
+          Question(questionText: 'What is 7 × 8?', options: ['48', '54', '56', '58'], correctIndex: 2),
+          Question(questionText: 'What is the square root of 81?', options: ['7', '8', '9', '10'], correctIndex: 2),
+          Question(questionText: 'What is 15% of 200?', options: ['20', '25', '30', '35'], correctIndex: 2),
+          Question(questionText: 'What is 12 + 15?', options: ['25', '27', '26', '28'], correctIndex: 1),
+          Question(questionText: 'What is 100 ÷ 4?', options: ['20', '25', '30', '24'], correctIndex: 1),
+          Question(questionText: 'How many degrees in a right angle?', options: ['45', '90', '180', '360'], correctIndex: 1),
+          Question(questionText: 'What is the value of π (approx)?', options: ['2.14', '3.14', '4.14', '3.41'], correctIndex: 1),
+          Question(questionText: 'What is 11 × 11?', options: ['111', '121', '131', '141'], correctIndex: 1),
+          Question(questionText: 'What is half of 50?', options: ['10', '15', '20', '25'], correctIndex: 3),
+          Question(questionText: 'What is 3³?', options: ['6', '9', '27', '81'], correctIndex: 2),
+        ],
+      ),
+      Category(
+        name: 'History',
+        color1: Colors.orange,
+        color2: Colors.deepOrange,
+        questions: [
+          Question(questionText: 'Who was the first President of the United States?', options: ['Abraham Lincoln', 'George Washington', 'Thomas Jefferson', 'John Adams'], correctIndex: 1),
+          Question(questionText: 'In which year did World War II end?', options: ['1940', '1942', '1945', '1948'], correctIndex: 2),
+          Question(questionText: 'The ancient pyramids are found in which country?', options: ['Mexico', 'Egypt', 'Peru', 'Greece'], correctIndex: 1),
+          Question(questionText: 'Who discovered America in 1492 (commonly taught)?', options: ['Vasco da Gama', 'Christopher Columbus', 'Marco Polo', 'Ferdinand Magellan'], correctIndex: 1),
+          Question(questionText: 'Which empire built the Colosseum?', options: ['Greek', 'Roman', 'Persian', 'Ottoman'], correctIndex: 1),
+          Question(questionText: 'Which movement ended apartheid in South Africa?', options: ['Civil Rights', 'Anti-Apartheid', 'Reformation', 'Renaissance'], correctIndex: 1),
+          Question(questionText: 'Who was known as the Maid of Orléans?', options: ['Joan of Arc', 'Cleopatra', 'Boudica', 'Elizabeth I'], correctIndex: 0),
+          Question(questionText: 'Which revolution began in 1789?', options: ['Russian Revolution', 'Industrial Revolution', 'French Revolution', 'American Revolution'], correctIndex: 2),
+          Question(questionText: 'Where was the ancient city of Troy located (roughly)?', options: ['Asia Minor', 'Britain', 'India', 'China'], correctIndex: 0),
+          Question(questionText: 'Which explorer circumnavigated the globe first?', options: ['Magellan (expedition)', 'Columbus', 'Cook', 'Drake'], correctIndex: 0),
+        ],
+      ),
+      Category(
+        name: 'Geography',
+        color1: Colors.teal,
+        color2: Colors.cyan,
+        questions: [
+          Question(questionText: 'What is the largest ocean on Earth?', options: ['Atlantic', 'Indian', 'Arctic', 'Pacific'], correctIndex: 3),
+          Question(questionText: 'Which is the world\'s longest river (common answer)?', options: ['Nile', 'Amazon', 'Yangtze', 'Mississippi'], correctIndex: 0),
+          Question(questionText: 'Mount Everest is located on which mountain range?', options: ['Andes', 'Himalayas', 'Rockies', 'Alps'], correctIndex: 1),
+          Question(questionText: 'Which country has the most population?', options: ['India', 'USA', 'China', 'Russia'], correctIndex: 2),
+          Question(questionText: 'What is the capital of France?', options: ['Paris', 'Berlin', 'Madrid', 'Rome'], correctIndex: 0),
+          Question(questionText: 'Which continent is Australia on?', options: ['Europe', 'Asia', 'Australia', 'Africa'], correctIndex: 2),
+          Question(questionText: 'Which desert is the largest hot desert?', options: ['Gobi', 'Sahara', 'Kalahari', 'Mojave'], correctIndex: 1),
+          Question(questionText: 'Which sea lies between Saudi Arabia and Africa?', options: ['Mediterranean', 'Red Sea', 'Black Sea', 'Caspian Sea'], correctIndex: 1),
+          Question(questionText: 'Which is the smallest country by area?', options: ['Monaco', 'Nauru', 'Vatican City', 'San Marino'], correctIndex: 2),
+          Question(questionText: 'Which US state is famous for Hollywood?', options: ['Florida', 'California', 'New York', 'Texas'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'Sports',
+        color1: Colors.redAccent,
+        color2: Colors.orangeAccent,
+        questions: [
+          Question(questionText: 'How many players on a soccer team on the field?', options: ['9', '10', '11', '12'], correctIndex: 2),
+          Question(questionText: 'Which sport uses a shuttlecock?', options: ['Tennis', 'Badminton', 'Squash', 'Table Tennis'], correctIndex: 1),
+          Question(questionText: 'In which sport is the term "home run" used?', options: ['Cricket', 'Baseball', 'Hockey', 'Basketball'], correctIndex: 1),
+          Question(questionText: 'How many points is a touchdown in American football?', options: ['3', '6', '7', '4'], correctIndex: 1),
+          Question(questionText: 'Which sport is played at Wimbledon?', options: ['Cricket', 'Tennis', 'Rugby', 'Golf'], correctIndex: 1),
+          Question(questionText: 'How many rings are on the Olympic flag?', options: ['4', '5', '6', '7'], correctIndex: 1),
+          Question(questionText: 'Which sport uses the term "ace" for a serve?', options: ['Football', 'Badminton', 'Tennis', 'Cricket'], correctIndex: 2),
+          Question(questionText: 'Which country hosted the 2016 Summer Olympics?', options: ['China', 'Brazil', 'UK', 'Russia'], correctIndex: 1),
+          Question(questionText: 'In basketball, how many points is a free throw?', options: ['1', '2', '3', '0'], correctIndex: 0),
+          Question(questionText: 'Which sport is associated with the Tour de France?', options: ['Swimming', 'Cycling', 'Athletics', 'Tennis'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'General Knowledge',
+        color1: Colors.deepPurple,
+        color2: Colors.purpleAccent,
+        questions: [
+          Question(questionText: 'Which device do we use to look at stars?', options: ['Microscope', 'Telescope', 'Binoculars', 'Periscope'], correctIndex: 1),
+          Question(questionText: 'Which language has most native speakers?', options: ['English', 'Spanish', 'Mandarin', 'Hindi'], correctIndex: 2),
+          Question(questionText: 'Which is a primary color?', options: ['Green', 'Purple', 'Red', 'Brown'], correctIndex: 2),
+          Question(questionText: 'What does CPU stand for (computers)?', options: ['Central Performance Unit', 'Central Processing Unit', 'Computer Personal Unit', 'Control Processing Unit'], correctIndex: 1),
+          Question(questionText: 'Which planet is closest to the Sun?', options: ['Earth', 'Mercury', 'Venus', 'Mars'], correctIndex: 1),
+          Question(questionText: 'What do bees make?', options: ['Milk', 'Honey', 'Bread', 'Cheese'], correctIndex: 1),
+          Question(questionText: 'Which day comes after Friday?', options: ['Saturday', 'Sunday', 'Thursday', 'Monday'], correctIndex: 0),
+          Question(questionText: 'Which shape has four equal sides and angles?', options: ['Rectangle', 'Square', 'Triangle', 'Circle'], correctIndex: 1),
+          Question(questionText: 'What color do you get mixing red and blue?', options: ['Green', 'Purple', 'Orange', 'Pink'], correctIndex: 1),
+          Question(questionText: 'Which month comes after June?', options: ['May', 'July', 'August', 'April'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'Technology',
+        color1: Colors.indigo,
+        color2: Colors.blueAccent,
+        questions: [
+          Question(questionText: 'What does HTTP stand for?', options: ['HyperText Transfer Protocol', 'High Transfer Text Protocol', 'Hyperlink Transfer Text Protocol', 'HyperText Transmission Protocol'], correctIndex: 0),
+          Question(questionText: 'Which company makes the iPhone?', options: ['Google', 'Apple', 'Microsoft', 'Samsung'], correctIndex: 1),
+          Question(questionText: 'What is an app?', options: ['Application', 'Apple', 'Approach', 'Appendix'], correctIndex: 0),
+          Question(questionText: 'Which is a programming language?', options: ['HTML', 'CSS', 'Dart', 'Photoshop'], correctIndex: 2),
+          Question(questionText: 'Which company created Android?', options: ['Apple', 'Google', 'Microsoft', 'IBM'], correctIndex: 1),
+          Question(questionText: 'What does CPU stand for?', options: ['Central Processing Unit', 'Central Program Unit', 'Computer Processing Unit', 'Control Program Unit'], correctIndex: 0),
+          Question(questionText: 'Which device is used for printing?', options: ['Scanner', 'Printer', 'Monitor', 'Router'], correctIndex: 1),
+          Question(questionText: 'What is a URL?', options: ['Uniform Resource Locator', 'Universal Resource Link', 'Uniform React Link', 'Universal Request Locator'], correctIndex: 0),
+          Question(questionText: 'Which technology is used for contactless payments?', options: ['NFC', 'GPS', 'USB', 'WiFi'], correctIndex: 0),
+          Question(questionText: 'Which company makes the Windows OS?', options: ['Google', 'Microsoft', 'Apple', 'Intel'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'Art',
+        color1: Colors.pink,
+        color2: Colors.pinkAccent,
+        questions: [
+          Question(questionText: 'Which art uses pigments on wet plaster?', options: ['Fresco', 'Mosaic', 'Oil painting', 'Watercolor'], correctIndex: 0),
+          Question(questionText: 'Who painted the Mona Lisa?', options: ['Picasso', 'Van Gogh', 'Leonardo da Vinci', 'Rembrandt'], correctIndex: 2),
+          Question(questionText: 'Which tool holds paint on paper?', options: ['Easel', 'Brush', 'Palette', 'Canvas'], correctIndex: 1),
+          Question(questionText: 'Which art form uses clay?', options: ['Sculpture', 'Photography', 'Calligraphy', 'Music'], correctIndex: 0),
+          Question(questionText: 'Which color is created mixing red and white?', options: ['Maroon', 'Pink', 'Purple', 'Orange'], correctIndex: 1),
+          Question(questionText: 'What is an exhibition?', options: ['A visit', 'A display', 'A painting', 'A book'], correctIndex: 1),
+          Question(questionText: 'Which era had the Renaissance?', options: ['Medieval', 'Renaissance', 'Modern', 'Classical'], correctIndex: 1),
+          Question(questionText: 'Which artist is known for Sunflowers?', options: ['Da Vinci', 'Van Gogh', 'Monet', 'Picasso'], correctIndex: 1),
+          Question(questionText: 'Which is a sculpting material?', options: ['Marble', 'Paper', 'Ink', 'Canvas'], correctIndex: 0),
+          Question(questionText: 'What is a gallery?', options: ['A museum', 'A shop', 'A studio', 'A frame'], correctIndex: 0),
+        ],
+      ),
+      Category(
+        name: 'Music',
+        color1: Colors.deepOrange,
+        color2: Colors.amber,
+        questions: [
+          Question(questionText: 'Which instrument has keys and strings and is played with hammers?', options: ['Guitar', 'Piano', 'Violin', 'Drums'], correctIndex: 1),
+          Question(questionText: 'How many beats does a typical 4/4 time measure have?', options: ['2', '3', '4', '5'], correctIndex: 2),
+          Question(questionText: 'Which instrument is plucked?', options: ['Violin', 'Drum', 'Guitar', 'Trombone'], correctIndex: 2),
+          Question(questionText: 'Which term means to play softly?', options: ['Forte', 'Piano', 'Allegro', 'Presto'], correctIndex: 1),
+          Question(questionText: 'Which family does the trumpet belong to?', options: ['Strings', 'Brass', 'Woodwind', 'Percussion'], correctIndex: 1),
+          Question(questionText: 'A person who composes music is called?', options: ['Actor', 'Composer', 'Painter', 'Author'], correctIndex: 1),
+          Question(questionText: 'What do musicians read to play music?', options: ['Script', 'Sheet music', 'Notes', 'Lyrics'], correctIndex: 1),
+          Question(questionText: 'Which is a percussion instrument?', options: ['Flute', 'Clarinet', 'Drums', 'Violin'], correctIndex: 2),
+          Question(questionText: 'Which instrument is bowed?', options: ['Piano', 'Guitar', 'Violin', 'Trumpet'], correctIndex: 2),
+          Question(questionText: 'Which voice type is highest?', options: ['Alto', 'Soprano', 'Tenor', 'Bass'], correctIndex: 1),
+        ],
+      ),
+      Category(
+        name: 'Social Studies',
+        color1: Colors.blueGrey,
+        color2: Colors.grey,
+        questions: [
+          Question(questionText: 'What is the study of societies called?', options: ['Biology', 'Sociology', 'Chemistry', 'Physics'], correctIndex: 1),
+          Question(questionText: 'Which body makes laws in many countries?', options: ['Judiciary', 'Legislature', 'Executive', 'Cabinet'], correctIndex: 1),
+          Question(questionText: 'Which right allows free speech?', options: ['Economic right', 'Civil right', 'Property right', 'None'], correctIndex: 1),
+          Question(questionText: 'What is a local government called in many places?', options: ['Province', 'Municipality', 'Nation', 'State'], correctIndex: 1),
+          Question(questionText: 'Which is an example of public transport?', options: ['Car', 'Bicycle', 'Bus', 'Scooter'], correctIndex: 2),
+          Question(questionText: 'What is the currency used in Japan?', options: ['Yen', 'Won', 'Dollar', 'Euro'], correctIndex: 0),
+          Question(questionText: 'Which organ represents the people in democracy?', options: ['Government', 'Parliament', 'Public', 'Police'], correctIndex: 1),
+          Question(questionText: 'Which helps measure population?', options: ['Census', 'Survey', 'Quiz', 'Vote'], correctIndex: 0),
+          Question(questionText: 'What is community service?', options: ['Helping community', 'Playing games', 'Travelling', 'Shopping'], correctIndex: 0),
+          Question(questionText: 'Which year is common for new decades to begin?', options: ['2021', '2020', '2019', '2022'], correctIndex: 1),
+        ],
+      ),
+    ];
+  }
+}
